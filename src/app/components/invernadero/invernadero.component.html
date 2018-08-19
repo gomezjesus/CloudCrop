@@ -1,0 +1,36 @@
+<link href="https://cdnjs.cloudflare.com/ajax/libs/datatables/1.10.12/css/dataTables.bootstrap4.min.css" rel="stylesheet"/>
+
+<div class="container main-container">
+  
+  <h1 class="title">History</h1>
+  <img src="../../../assets//img/logo.png" class="logo center" alt="">
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
+
+      <!-- Position Column -->
+      <ng-container matColumnDef="fecha">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Fecha </th>
+        <td mat-cell *matCellDef="let log"> {{log.date}}  </td>
+      </ng-container>
+    
+      <!-- Name Column -->
+      <ng-container matColumnDef="ha">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Humedad Aire </th>
+        <td mat-cell *matCellDef="let log"> {{log.air_h}} % </td>
+      </ng-container>
+    
+      <!-- Weight Column -->
+      <ng-container matColumnDef="ht">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Humedad Tierra </th>
+        <td mat-cell *matCellDef="let log"> {{log.soil_h}} % </td>
+      </ng-container>
+    
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="temp">
+        <th mat-header-cell *matHeaderCellDef mat-sort-header> Temperatura </th>
+        <td mat-cell *matCellDef="let log"> {{log.temp}} Cº </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</div>
